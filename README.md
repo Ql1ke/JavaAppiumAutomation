@@ -1,3 +1,3 @@
 # JavaAppiumAutomation
-LearQA - JAVA
+LearnQA - JAVA
 
