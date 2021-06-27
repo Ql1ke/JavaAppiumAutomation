@@ -1,17 +1,25 @@
+import org.junit.Assert;
 import org.junit.Test;
 
-public class MainClassTest extends MainClass
+public class MainClassTest
 {
+    MainClass number = new MainClass();
+
     @Test
 
-    public void testGetLocalNumber ()
+    public void testGetClassNumber()
+/*    {
+       MainClass mainClass = new MainClass();
+        Assert.assertTrue(mainClass.getClassNumber() <= 45);
+    }
+*/
     {
-        int a = this.getLocalNumber();
 
-        if (a == 14) {
-            System.out.println("Return 14, it`s true");
+        if (number.getClassNumber() > 45){
+            System.out.println("class_number > 45");
         } else {
-            System.out.println("a != number, it`s false");
+            System.out.println("class_number < 45");
         }
     }
+
 }
