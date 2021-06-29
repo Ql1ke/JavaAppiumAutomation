@@ -10,7 +10,7 @@ public class MainClassTest
         boolean str1 = string.getClassString().contains("Hello");
         boolean str2 = string.getClassString().contains("hello");
 
-        if (str1 == str2) {
+        if (str1.equals(str2)) {
             Assert.fail("Not exist Hello, hello");
         }
 
