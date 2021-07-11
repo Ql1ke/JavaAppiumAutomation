@@ -59,7 +59,7 @@ public class firstTest {
 
         waitForElementPresent(
                 By.xpath("//*[@resource-id='org.wikipedia:id/page_list_item_container']//*[@text='Programming language']"),
-                "Cannot find 'Object-oriented programming language' topic searching by 'Java']",
+                "Cannot find 'Object-oriented programming language' topic searching by 'Java'",
                 15
         );
     }
@@ -137,7 +137,7 @@ public class firstTest {
     }
 
     @Test
-    public void homeWork3()
+    public void homeWork3_2()
     {
         waitForElementAndClick(
                 By.xpath("//*[contains(@text,'Search Wikipedia')]"),
@@ -158,6 +158,48 @@ public class firstTest {
                 "Search…",
                 article_title
         );
+    }
+
+    @Test
+    public void homework3_3()
+    {
+        waitForElementAndClick(
+                By.xpath("//*[contains(@text,'Search Wikipedia')]"),
+                "Cannot find Search Wikipedia",
+                5
+        );
+
+        waitForElementAndSendKeys(
+                By.id("org.wikipedia:id/search_src_text"),
+                "idea",
+                "Cannot find search input",
+                5
+        );
+
+        waitForElementPresent(
+                By.xpath("//*[@resource-id='org.wikipedia:id/page_list_item_container']//*[@text='Mental image or concept']"),
+                "Cannot find 'Mental image or concept' topic searching by 'idea'",
+                15
+        );
+
+        waitForElementAndClick(
+                By.id("org.wikipedia:id/search_close_btn"),
+                "Cannot find X to cancel search",
+                5
+        );
+
+        waitForElementAndClick(
+                By.id("org.wikipedia:id/search_close_btn"),
+                "Cannot find X to cancel search",
+                5
+        );
+
+        waitForElementNotPresent(
+                By.id("org.wikipedia:id/search_close_btn"),
+                "X is still present on the page",
+                15
+        );
+
     }
 
 
