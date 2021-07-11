@@ -202,6 +202,30 @@ public class firstTest {
 
     }
 
+    @Test
+    public void homework3_4() {
+        waitForElementAndClick(
+                By.xpath("//*[contains(@text,'Search Wikipedia')]"),
+                "Cannot find Search Wikipedia",
+                5
+        );
+
+        waitForElementAndSendKeys(
+                By.id("org.wikipedia:id/search_src_text"),
+                "president",
+                "Cannot find search input",
+                5
+        );
+
+        waitForElementPresent(
+                By.xpath("//*[@resource-id='org.wikipedia:id/fragment_search_results']//*[@text='President']"),
+                "Cannot find 'President' topic searching by 'President'",
+                15
+        );
+
+    }
+
+
 
     private WebElement waitForElementPresent(By by, String error_message, long timeoutInSeconds)
     {
