@@ -38,6 +38,9 @@ public class firstTest {
         driver.quit();
     }
 
+
+
+
     @Test
     public void firstTest()
     {
@@ -133,6 +136,30 @@ public class firstTest {
         );
     }
 
+    @Test
+    public void homeWork3()
+    {
+        waitForElementAndClick(
+                By.xpath("//*[contains(@text,'Search Wikipedia')]"),
+                "Cannot find Search Wikipedia input",
+                5
+        );
+
+
+        WebElement assertElementHasText = waitForElementPresent(
+                By.id("org.wikipedia:id/search_src_text"),
+                "Cannot find search input",
+                5
+        );
+
+        String article_title = assertElementHasText.getAttribute("text");
+        Assert.assertEquals(
+                "We see unexpected title",
+                "Search…",
+                article_title
+        );
+    }
+
 
     private WebElement waitForElementPresent(By by, String error_message, long timeoutInSeconds)
     {
@@ -148,9 +175,9 @@ public class firstTest {
         return waitForElementPresent(by,error_message,5);
     }
 
-    private WebElement waitForElementAndClick(By by, String error_massega, long timeoutInSeconds)
+    private WebElement waitForElementAndClick(By by, String error_message, long timeoutInSeconds)
     {
-        WebElement element = waitForElementPresent(by,error_massega,timeoutInSeconds);
+        WebElement element = waitForElementPresent(by,error_message,timeoutInSeconds);
         element.click();
         return element;
     }
