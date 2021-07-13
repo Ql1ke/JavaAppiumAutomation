@@ -228,7 +228,7 @@ public class firstTest {
         );
     }
 
-    private WebElement waitForElementPresent(By by, String article_title, String error_message)
+    private WebElement waitForElementPresent(By by, String error_message)
     {
         return waitForElementPresent(by,error_message,5);
     }
@@ -264,13 +264,18 @@ public class firstTest {
         return element;
     }
 
-    private void assertElementHasText(By by, String article_title, String  error_message)
+    private WebElement assertElementHasText(By by, String article_title, String  error_message)
     {
+        WebElement element = waitForElementPresent(by, error_message);
+
         Assert.assertEquals(
                 "We see unexpected title",
                 "Search…",
                 article_title
         );
+
+        return element;
+
     }
 
 
