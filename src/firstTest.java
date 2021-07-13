@@ -145,18 +145,16 @@ public class firstTest {
                 5
         );
 
-
-        WebElement assertElementHasText = waitForElementPresent(
+        WebElement article_title = waitForElementPresent(
                 By.id("org.wikipedia:id/search_src_text"),
-                "Cannot find search input",
-                5
+                "Cannot find article title",
+                15
         );
 
-        String article_title = assertElementHasText.getAttribute("text");
-        Assert.assertEquals(
-                "We see unexpected title",
+        assertElementHasText(
+                article_title,
                 "Search…",
-                article_title
+                "Cannot find search input"
         );
     }
 
@@ -271,4 +269,21 @@ public class firstTest {
         element.clear();
         return element;
     }
+
+    private void assertElementHasText(WebElement element, String expected_text, String  error_message)
+    {
+
+        String element_text = element.getAttribute("text");
+
+        Assert.assertEquals(
+                error_message,
+                expected_text,
+                element_text
+        );
+
+    }
+
+
 }
+
+
