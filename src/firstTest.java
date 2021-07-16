@@ -689,7 +689,7 @@ public class firstTest {
 
 
         waitForElementAndClick(
-                By.xpath(search_second_article),
+                By.id("org.wikipedia:id/view_page_list_title"),
                 "Cannot find Search Wikipedia input",
                 5
         );
@@ -701,6 +701,42 @@ public class firstTest {
         );
 
     }
+
+    @Test
+    public void home4_6()
+    {
+        waitForElementAndClick(
+                By.xpath("//*[contains(@text, 'Search Wikipedia')]"),
+                "Cannot find 'Search Wikipedia' input",
+                5
+        );
+
+        waitForElementAndSendKeys(
+                By.xpath("//*[contains(@text,'Search…')]"),
+                "Java",
+                "Cannot find search input",
+                5
+        );
+
+        waitForElementAndClick(
+                By.xpath("//*[@resource-id='org.wikipedia:id/page_list_item_container']//*[@text='Programming language']"),
+                "Cannot find Search Wikipedia input",
+                5
+        );
+
+        assertElementPresent(
+                By.id("org.wikipedia:id/view_page_title_text"),
+                "We have not found title_text"
+        );
+
+        waitForElementPresent(
+                By.id("org.wikipedia:id/view_page_title_text"),
+                "Cannot find article title",
+                15
+        );
+
+    }
+
 
     private WebElement waitForElementPresent(By by, String error_message, long timeoutInSeconds)
     {
@@ -827,5 +863,20 @@ public class firstTest {
         WebElement element = waitForElementPresent(by, error_messsage, timeoutInSeconds);
         return element.getAttribute(attribute);
 
+    }
+
+    private List getElement(By by)
+    {
+        List element = (List) driver.findElement(by);
+        return element;
+    }
+
+    private void assertElementPresent (By by, String error_message)
+    {
+
+        List title_label = getElement(by);
+        if (title_label == null) {
+            throw new AssertionError(error_message);
+        }
     }
 }
