@@ -511,6 +511,7 @@ public class firstTest extends CoreTestCase {
 
     @Test
     public void testHome4_5()
+
     {
         waitForElementAndClick(
                 By.xpath("//*[contains(@text, 'Search Wikipedia')]"),

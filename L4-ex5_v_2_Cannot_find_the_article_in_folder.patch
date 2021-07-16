@@ -1,0 +1,46 @@
+Index: src/firstTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/firstTest.java b/src/firstTest.java
+--- a/src/firstTest.java	(revision 8b3f6245a6ec2b6ccc555bde04080536c98f1052)
++++ b/src/firstTest.java	(revision 1f0f1d06bf32517b9c4d21bdc0f262b7208eed6a)
+@@ -42,7 +42,27 @@
+         driver.quit();
+     }
+ 
+-
++//    @Before
++//    public void setUp() throws Exception
++//    {
++//        DesiredCapabilities capabilities = new DesiredCapabilities();
++//
++//        capabilities.setCapability("platformName","Android");
++//        capabilities.setCapability("deviceName","AndroidTestDevice");
++//        capabilities.setCapability("platformVersion","8.0");
++//        capabilities.setCapability("automationName","Appium");
++//        capabilities.setCapability("appPackage","org.wikipedia");
++//        capabilities.setCapability("appActivity",".main.MainActivity");
++//        capabilities.setCapability("app","C:/PostwinSoftware/GitHub/JavaAppiumAutomation/apks/org.wikipedia.apk");
++//
++//        driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
++//    }
++//
++//    @After
++//    public void tearDown()
++//    {
++//        driver.quit();
++//    }
+ 
+ 
+     @Test
+@@ -689,7 +709,7 @@
+ 
+ 
+         waitForElementAndClick(
+-                By.xpath(search_second_article),
++                By.id("org.wikipedia:id/page_list_item_title"),
+                 "Cannot find Search Wikipedia input",
+                 5
+         );
